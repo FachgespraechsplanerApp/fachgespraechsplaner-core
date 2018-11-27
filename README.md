@@ -1,5 +1,9 @@
 # Fachgesprächsplaner-Core-API
 
+## Status
+
+Tests: [![Build Status](https://travis-ci.com/FachgespraechsplanerApp/fachgespraechsplaner-core.svg?branch=master)](https://travis-ci.com/FachgespraechsplanerApp/fachgespraechsplaner-core)
+
 ## Available API Routes
 
 ### Authorization Routes
