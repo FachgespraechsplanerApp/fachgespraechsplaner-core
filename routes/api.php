@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 /**
  * Authorization Routes
  */
-Route::post('/login', 'AuthController@login');
+//Route::post('/login', 'AuthController@login');
 
 /**
  * Institution Routes
@@ -72,3 +72,12 @@ Route::get('/timeslots', 'TimeslotController@list');
 Route::get('/timeslots/{id}', 'TimeslotController@get');
 Route::patch('/timeslots/{id}', 'TimeslotController@update');
 Route::delete('/timeslots/{id}', 'TimeslotController@delete');
+
+/**
+ * Schulform Routes
+ */
+Route::post('/schulform', 'SchulformController@create');
+Route::get('/schulform', 'SchulformController@list');
+Route::get('/schulform/{id}', 'SchulformController@get');
+Route::patch('/schulform/{id}', 'SchulformController@update');
+Route::delete('/schulform/{id}', 'SchulformController@delete');

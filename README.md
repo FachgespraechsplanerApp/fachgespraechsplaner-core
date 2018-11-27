@@ -53,3 +53,11 @@
 - `GET /api/timeslots/{id}`
 - `PATCH /api/timeslots/{id}`
 - `DELETE /api/timeslots/{id}`
+
+### Schulform Routes
+
+- `POST /api/schulform`
+- `GET /api/schulform`
+- `GET /api/schulform/{id}`
+- `PATCH /api/schulform/{id}`
+- `DELETE /api/schulform/{id}`
