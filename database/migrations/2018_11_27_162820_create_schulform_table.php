@@ -19,8 +19,6 @@ class CreateSchulformTable extends Migration
             $table->string('short');
             $table->integer('institutionId')->unsigned();
             $table->timestamps();
-
-
         });
     }
 
