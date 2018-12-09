@@ -14,4 +14,11 @@ class Schulform extends Model
     protected $fillable = [
         'name', 'short', 'institutionId'
     ];
+
+    /**
+     * The name of the table.
+     *
+     * @var string
+     */
+    protected $table = 'schulform';
 }

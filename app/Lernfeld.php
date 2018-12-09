@@ -14,4 +14,11 @@ class Lernfeld extends Model
     protected $fillable = [
         'number', 'name', 'schulformId', 'year'
     ];
+
+    /**
+     * The name of the table.
+     *
+     * @var string
+     */
+    protected $table = 'lernfelder';
 }
