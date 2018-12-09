@@ -31,11 +31,11 @@ Route::delete('/institutions/{id}', 'InstitutionController@delete');
 /**
  * User Routes
  */
-Route::post('/user', 'UsersController@create');
-Route::get('/users', 'UsersController@list');
-Route::get('/users/{id}', 'UsersController@get');
-Route::patch('/users/{id}', 'UsersController@update');
-Route::delete('/users/{id}', 'UsersController@delete');
+Route::post('/user', 'UserController@create');
+Route::get('/users', 'UserController@list');
+Route::get('/users/{id}', 'UserController@get');
+Route::patch('/users/{id}', 'UserController@update');
+Route::delete('/users/{id}', 'UserController@delete');
 
 /**
  * Class Routes
