@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->integer('classId')->unsigned();
             $table->integer('schulformId')->unsigned();
-            $table->integer('institutionId')->unsigned();
             $table->boolean('isAdmin');
             $table->string('email')->unique();
             $table->string('password');

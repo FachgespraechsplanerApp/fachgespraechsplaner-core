@@ -20,15 +20,6 @@ use Illuminate\Support\Facades\Route;
 //Route::post('/login', 'AuthController@login');
 
 /**
- * Institution Routes
- */
-Route::post('/institution', 'InstitutionController@create');
-Route::get('/institutions', 'InstitutionController@list');
-Route::get('/institutions/{id}', 'InstitutionController@get');
-Route::patch('/institutions/{id}', 'InstitutionController@update');
-Route::delete('/institutions/{id}', 'InstitutionController@delete');
-
-/**
  * User Routes
  */
 Route::post('/user', 'UserController@create');

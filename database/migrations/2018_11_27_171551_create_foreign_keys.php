@@ -21,10 +21,6 @@ class CreateForeignKeys extends Migration
             $table->foreign('schulformId')
                 ->references('id')->on('schulform')
                 ->onDelete('restrict');
-
-            $table->foreign('institutionId')
-                ->references('id')->on('institutions')
-                ->onDelete('restrict');
         });
 
         Schema::table('events', function($table) {
@@ -38,18 +34,6 @@ class CreateForeignKeys extends Migration
 
             $table->foreign('creatorId')
                 ->references('id')->on('users')
-                ->onDelete('restrict');
-        });
-
-        Schema::table('schulform', function($table) {
-            $table->foreign('institutionId')
-                ->references('id')->on('institutions')
-                ->onDelete('restrict');
-        });
-
-        Schema::table('classes', function($table) {
-            $table->foreign('institutionId')
-                ->references('id')->on('institutions')
                 ->onDelete('restrict');
         });
 

@@ -17,7 +17,6 @@ class SchulformController extends Controller
         $schulform = new Schulform();
         $schulform->name = $request->input('name');
         $schulform->short = $request->input('short');
-        $schulform->institutionId = $request->input('institutionId');
         $schulform->save();
         return response()->json(['schulform' => $schulform], 201);
     }
@@ -68,7 +67,6 @@ class SchulformController extends Controller
         }
         $schulform->name = $request->input('name');
         $schulform->short = $request->input('short');
-        $schulform->institutionId = $request->input('institutionId');
         $schulform->save();
         return response()->json(['schulform' => $schulform], 200);
     }

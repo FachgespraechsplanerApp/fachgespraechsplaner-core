@@ -24,7 +24,7 @@ class TimeslotController extends Controller
     }
 
     /**
-     * List all Timeslots in Institution
+     * List all Timeslots
      * @return \Illuminate\Http\JsonResponse
      */
     public function list()

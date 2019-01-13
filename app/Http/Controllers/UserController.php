@@ -20,7 +20,6 @@ class UserController extends Controller
            'username' => 'required',
            'classId' => 'required',
            'schulformId' => 'required',
-           'institutionId' => 'required',
            'isAdmin' => 'required',
            'email' => 'required|email|unique:users',
            'password' => 'required'
@@ -31,7 +30,6 @@ class UserController extends Controller
             'username' => $request->input('username'),
             'classId' => $request->input('classId'),
             'schulformId' => $request->input('schulformId'),
-            'institutionId' => $request->input('institutionId'),
             'isAdmin' => $request->input('isAdmin'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password'))
@@ -43,7 +41,7 @@ class UserController extends Controller
     }
 
     /**
-     * List all users in Institution
+     * List all users
      */
     public function list()
     {

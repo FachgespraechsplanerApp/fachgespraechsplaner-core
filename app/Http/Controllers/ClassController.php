@@ -16,7 +16,6 @@ class ClassController extends Controller
     {
         $class = new Classes();
         $class->name = $request->input('name');
-        $class->institutionId = $request->input('institutionId');
         $class->save();
         return response()->json(['class' => $class], 201);
     }
@@ -66,7 +65,6 @@ class ClassController extends Controller
             return response()->json(['message' => 'Class not found'], 404);
         }
         $class->name = $request->input('name');
-        $class->institutionId = $request->input('institutionId');
         $class->save();
         return response()->json(['class' => $class], 200);
     }
