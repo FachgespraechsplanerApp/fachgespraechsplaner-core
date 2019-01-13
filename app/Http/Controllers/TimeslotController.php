@@ -14,6 +14,10 @@ class TimeslotController extends Controller
      */
     public function create(Request $request)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $timeslot = new Timeslot();
         $timeslot->lernfeldId = $request->input('lernfeldId');
         $timeslot->slot = $request->input('slot');
@@ -62,6 +66,10 @@ class TimeslotController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $timeslot = Timeslot::find($id);
         if(!$timeslot)
         {
@@ -82,6 +90,10 @@ class TimeslotController extends Controller
      */
     public function delete($id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $timeslot = Timeslot::find($id);
         $timeslot->delete();
         return response()->json(['message' => 'Timeslot deleted'], 200);

@@ -14,6 +14,10 @@ class LernfeldController extends Controller
      */
     public function create(Request $request)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $lernfeld = new Lernfeld();
         $lernfeld->number = $request->input('number');
         $lernfeld->name = $request->input('name');
@@ -62,6 +66,10 @@ class LernfeldController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $lernfeld = Lernfeld::find($id);
         if(!$lernfeld)
         {
@@ -82,6 +90,10 @@ class LernfeldController extends Controller
      */
     public function delete($id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $lernfeld = Lernfeld::find($id);
         $lernfeld->delete();
         return response()->json(['message' => 'Lernfeld deleted'], 200);

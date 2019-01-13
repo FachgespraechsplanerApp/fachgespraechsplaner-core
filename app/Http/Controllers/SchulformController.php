@@ -14,6 +14,10 @@ class SchulformController extends Controller
      */
     public function create(Request $request)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $schulform = new Schulform();
         $schulform->name = $request->input('name');
         $schulform->short = $request->input('short');
@@ -60,6 +64,10 @@ class SchulformController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $schulform = Schulform::find($id);
         if(!$schulform)
         {
@@ -78,6 +86,10 @@ class SchulformController extends Controller
      */
     public function delete($id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $schulform = Schulform::find($id);
         $schulform->delete();
         return response()->json(['message' => 'Schulform deleted'], 200);

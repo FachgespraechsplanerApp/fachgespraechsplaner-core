@@ -80,6 +80,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $user = User::find($id);
         if(!$user)
         {
@@ -130,6 +134,10 @@ class UserController extends Controller
      */
     public function delete($id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $user = User::find($id);
         $user->delete();
         return response()->json(['message' => 'User deleted'], 200);

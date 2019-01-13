@@ -14,6 +14,10 @@ class ClassController extends Controller
      */
     public function create(Request $request)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $class = new Classes();
         $class->name = $request->input('name');
         $class->save();
@@ -59,6 +63,10 @@ class ClassController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $class = Classes::find($id);
         if(!$class)
         {
@@ -76,6 +84,10 @@ class ClassController extends Controller
      */
     public function delete($id)
     {
+        if (!auth()->guard('api')->user()->isAdmin)
+        {
+            return response()->json(['error' => 'Permission Denied'], 403);
+        }
         $class = Classes::find($id);
         $class->delete();
         return response()->json(['message' => 'Class deleted'], 200);
