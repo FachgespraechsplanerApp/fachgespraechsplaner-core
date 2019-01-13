@@ -17,58 +17,70 @@ use Illuminate\Support\Facades\Route;
 /**
  * Authorization Routes
  */
-//Route::post('/login', 'AuthController@login');
+Route::group([
+    'prefix' => 'auth'
+], function () {
+    Route::post('login', 'AuthController@login');
+    Route::post('signup', 'AuthController@signup');
+
+    Route::group([
+        'middleware' => 'auth:api'
+    ], function() {
+        Route::get('logout', 'AuthController@logout');
+        Route::get('user', 'AuthController@user');
+    });
+});
 
 /**
  * User Routes
  */
-Route::post('/user', 'UserController@create');
-Route::get('/users', 'UserController@list');
-Route::get('/users/{id}', 'UserController@get');
-Route::patch('/users/{id}', 'UserController@update');
-Route::delete('/users/{id}', 'UserController@delete');
+Route::post('/user', 'UserController@create')->middleware('auth:api');;
+Route::get('/users', 'UserController@list')->middleware('auth:api');;
+Route::get('/users/{id}', 'UserController@get')->middleware('auth:api');;
+Route::patch('/users/{id}', 'UserController@update')->middleware('auth:api');;
+Route::delete('/users/{id}', 'UserController@delete')->middleware('auth:api');;
 
 /**
  * Class Routes
  */
-Route::post('/class', 'ClassController@create');
-Route::get('/class', 'ClassController@list');
-Route::get('/class/{id}', 'ClassController@get');
-Route::patch('/class/{id}', 'ClassController@update');
-Route::delete('/class/{id}', 'ClassController@delete');
+Route::post('/class', 'ClassController@create')->middleware('auth:api');;
+Route::get('/class', 'ClassController@list')->middleware('auth:api');;
+Route::get('/class/{id}', 'ClassController@get')->middleware('auth:api');;
+Route::patch('/class/{id}', 'ClassController@update')->middleware('auth:api');;
+Route::delete('/class/{id}', 'ClassController@delete')->middleware('auth:api');;
 
 /**
  * Event Routes
  */
-Route::post('/event', 'EventsController@create');
-Route::get('/events', 'EventsController@list');
-Route::get('/events/{id}', 'EventsController@get');
-Route::patch('/events/{id}', 'EventsController@update');
-Route::delete('/events/{id}', 'EventsController@delete');
+Route::post('/event', 'EventsController@create')->middleware('auth:api');;
+Route::get('/events', 'EventsController@list')->middleware('auth:api');;
+Route::get('/events/{id}', 'EventsController@get')->middleware('auth:api');;
+Route::patch('/events/{id}', 'EventsController@update')->middleware('auth:api');;
+Route::delete('/events/{id}', 'EventsController@delete')->middleware('auth:api');;
 
 /**
  * Lernfeld Routes
  */
-Route::post('/lernfeld', 'LernfeldController@create');
-Route::get('/lernfeld', 'LernfeldController@list');
-Route::get('/lernfeld/{id}', 'LernfeldController@get');
-Route::patch('/lernfeld/{id}', 'LernfeldController@update');
-Route::delete('/lernfeld/{id}', 'LernfeldController@delete');
+Route::post('/lernfeld', 'LernfeldController@create')->middleware('auth:api');;
+Route::get('/lernfeld', 'LernfeldController@list')->middleware('auth:api');;
+Route::get('/lernfeld/{id}', 'LernfeldController@get')->middleware('auth:api');;
+Route::patch('/lernfeld/{id}', 'LernfeldController@update')->middleware('auth:api');;
+Route::delete('/lernfeld/{id}', 'LernfeldController@delete')->middleware('auth:api');;
 
 /**
  * Timeslot Routes
  */
-Route::post('/timeslots', 'TimeslotController@create');
-Route::get('/timeslots', 'TimeslotController@list');
-Route::get('/timeslots/{id}', 'TimeslotController@get');
-Route::patch('/timeslots/{id}', 'TimeslotController@update');
-Route::delete('/timeslots/{id}', 'TimeslotController@delete');
+Route::post('/timeslots', 'TimeslotController@create')->middleware('auth:api');;
+Route::get('/timeslots', 'TimeslotController@list')->middleware('auth:api');;
+Route::get('/timeslots/{id}', 'TimeslotController@get')->middleware('auth:api');;
+Route::patch('/timeslots/{id}', 'TimeslotController@update')->middleware('auth:api');;
+Route::delete('/timeslots/{id}', 'TimeslotController@delete')->middleware('auth:api');;
 
 /**
  * Schulform Routes
  */
-Route::post('/schulform', 'SchulformController@create');
-Route::get('/schulform', 'SchulformController@list');
-Route::get('/schulform/{id}', 'SchulformController@get');
-Route::patch('/schulform/{id}', 'SchulformController@update');
-Route::delete('/schulform/{id}', 'SchulformController@delete');
+Route::post('/schulform', 'SchulformController@create')->middleware('auth:api');;
+Route::get('/schulform', 'SchulformController@list')->middleware('auth:api');;
+Route::get('/schulform/{id}', 'SchulformController@get')->middleware('auth:api');;
+Route::patch('/schulform/{id}', 'SchulformController@update')->middleware('auth:api');;
+Route::delete('/schulform/{id}', 'SchulformController@delete')->middleware('auth:api');;
