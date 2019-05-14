@@ -16,6 +16,10 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
+            'username' => 'required|unique:users',
+            'classId' => 'required|integer',
+            'schulformId' => 'required|integer',
+            'isAdmin' => 'required',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed'
         ]);
